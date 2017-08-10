@@ -1,0 +1,19 @@
+import re
+
+
+street_type_re = re.compile(r'\b\S+\.?$', re.IGNORECASE)
+
+# street types we expect to see
+expected = ["Street", "Avenue", "Boulevard", "Drive", "Court", "Place", "Square", "Lane", "Road",
+            "Trail", "Parkway", "Commons", "Way", "Circle"]
+
+# regular expressions to test keys
+lower = re.compile(r'^([a-z]|_)*$')
+lower_colon = re.compile(r'^([a-z]|_)*:([a-z]|_)*$')
+problemchars = re.compile(r'[=\+/&<>;\'"\?%#$@\,\. \t\r\n]')
+
+tiger_left = re.compile(r'^tiger:zip_left$')
+tiger_right = re.compile(r'^tiger:zip_right$')
+tiger_tag = re.compile(r'^tiger:*')
+
+zip_code_re = re.compile(r'(\d{5})')
